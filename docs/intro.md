@@ -15,45 +15,13 @@ Rust 还具有以下优点，非常适合各种应用程序：
 * 最小运行时：Rust 具有极小的可选运行时。 为了有效地管理内存，此语言也不具有垃圾回收器。 在这一点上，Rust 非常类似于 C 和 C++ 之类的语言。
 * 面向裸机：Rust 可以用于嵌入式和“裸机”编程，因此适合用于编写操作系统内核或设备驱动程序。
   
-根据 2022 年的 Stack Overflow 开发人员调查，Rust 已经连续几年成为最受欢迎的语言。 开发人员喜欢 Rust 的编程！ 许多类型的组织（从初创公司到大型企业）都在其独特的用例中使用 Rust。 从生成工具到编写 Web 应用、在服务器上工作，以及创建嵌入式系统，有无限的可能。
+根据 [2023 年的 Stack Overflow 开发人员调查](https://survey.stackoverflow.co/2023/#overview?azure-portal=true)，Rust 已经连续几年成为最受欢迎的语言。 开发人员喜欢 Rust 的编程！ 许多类型的组织（从初创公司到大型企业）都在其独特的用例中使用 Rust。 从生成工具到编写 Web 应用、在服务器上工作，以及创建嵌入式系统，有无限的可能。
 
-
-## 环境安装与搭建
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+# 环境安装与搭建
+[进入官网](https://www.rust-lang.org/zh-CN/tools/install), 下载对应的软件的进行安装。
+![Alt text](image.png)
+安装 Rust 的建议方法是使用 Rust 工具链安装程序 rustup。
+请到网站 rustup.rs 查找操作系统的相应说明。
+![Alt text](image-1.png)
+Rust 有着以 6 星期为周期的 快速版本迭代机制，如果您曾经安装过 rustup，可以执行 rustup update 来升级 Rust。
+安装完成以后在控制台输入：
