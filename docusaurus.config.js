@@ -79,7 +79,17 @@ const config = {
             position: 'left',
             label: 'Rust',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { 
+            to: '/blog', 
+            label: 'Blog', 
+            position: 'left'
+          },
+          { 
+            type: 'docSidebar',
+            sidebarId: 'actixSidebar',
+            label: 'Actix', 
+            position: 'left'
+          },
           {
             href: 'https://github.com/fengjutian/x.site',
             label: 'GitHub',
@@ -105,15 +115,7 @@ const config = {
               {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
+              }
             ],
           },
           {
