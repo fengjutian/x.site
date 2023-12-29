@@ -65,3 +65,4 @@ async fn my_handler() -> impl Responder {
 ```
 
 The same limitation applies to extractors as well. When a handler function receives an argument which implements FromRequest, and that implementation blocks the current thread, the worker thread will block when running the handler. Special attention must be given when implementing extractors for this very reason, and they should also be implemented asynchronously where needed.
+
