@@ -33,6 +33,23 @@ const sidebars = {
         'actix/basics/Handlers'
       ],
     },
+    {
+      type: 'category',
+      label: '进阶',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: [
+        'actix/advanced/Errors',
+        'actix/advanced/URL-Dispatch',
+        'actix/advanced/Requests',
+        'actix/advanced/Responses',
+        'actix/advanced/Testing',
+        'actix/advanced/Middleware',
+        'actix/advanced/Static-Files'
+      ],
+    },
   ],
 };
 
