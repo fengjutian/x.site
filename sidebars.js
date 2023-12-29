@@ -29,6 +29,8 @@ const sidebars = {
         'actix/basics/GettingStared',
         'actix/basics/Application',
         'actix/basics/Server',
+        'actix/basics/Extraction',
+        'actix/basics/Handlers',
       ],
     },
   ],

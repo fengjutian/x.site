@@ -39,7 +39,10 @@ This is <Highlight color="#25c2a0">Docusaurus green</Highlight> -->
 我们认为**Actix Web**是一个强大且实用的框架。从本质上讲，它是一个带有一些特色的微框架。如果你已经是 Rust 程序员，你会很快找到归属感，即使你来自另一种编程语言，你也会发现**Actix Web**非常易于上手。
 </div>
 
+<!-- 
+An application developed with Actix Web will expose an HTTP server contained within a native executable. You can either put this behind another HTTP server like nginx or serve it up as-is. Even in the complete absence of another HTTP server Actix Web is powerful enough to provide HTTP/1 and HTTP/2 support as well as TLS (HTTPS). This makes it useful for building small services ready for production. -->
 
-An application developed with Actix Web will expose an HTTP server contained within a native executable. You can either put this behind another HTTP server like nginx or serve it up as-is. Even in the complete absence of another HTTP server Actix Web is powerful enough to provide HTTP/1 and HTTP/2 support as well as TLS (HTTPS). This makes it useful for building small services ready for production.
+使用Actix Web开发的应用程序将公开包含在本机可执行文件中的HTTP服务器。您可以将其放在另一个HTTP服务器（如nginx）后面，也可以按原样提供。即使在完全没有其他HTTP服务器的情况下，Actix Web也足够强大，可以提供HTTP/1和HTTP/2支持以及TLS（HTTPS）。这对于构建可供生产的小型服务非常有用。
 
-Most importantly: Actix Web runs on Rust 1.59 or later and it works with stable releases.
+<!-- Most importantly: Actix Web runs on Rust 1.59 or later and it works with stable releases. -->
+最重要的是：Actix Web运行在Rust 1.59或更高版本上，并且可以使用稳定的版本。
