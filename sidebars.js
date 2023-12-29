@@ -30,7 +30,7 @@ const sidebars = {
         'actix/basics/Application',
         'actix/basics/Server',
         'actix/basics/Extraction',
-        'actix/basics/Handlers',
+        'actix/basics/Handlers'
       ],
     },
   ],

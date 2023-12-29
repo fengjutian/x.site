@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 ---
+
 # Extraction 
 ## Type-safe information extraction
 
@@ -15,7 +16,8 @@ async fn index(path: web::Path<(String, String)>, json: web::Json<MyInfo>) -> im
 }
 ```
 
-## Path
+<!-- ## Path
+
 Path provides information that is extracted from the request's path. Parts of the path that are extractable are called "dynamic segments" and are marked with curly braces. You can deserialize any variable segment from the path.
 
 For instance, for resource that registered for the /users/{user_id}/{friend} path, two segments could be deserialized, user_id and friend. These segments could be extracted as a tuple in the order they are declared (e.g., Path<(u32, String)>).
@@ -39,8 +41,8 @@ async fn main() -> std::io::Result<()> {
         .run()
         .await
 }
-```
-
+``` -->
+<!-- 
 It is also possible to extract path information to a type that implements the Deserialize trait from serde by matching dynamic segment names with field names. Here is an equivalent example that uses a deserialization struct using serde (make sure to enable its derive feature) instead of a tuple type.
 
 ```rust
@@ -98,6 +100,7 @@ async fn main() -> std::io::Result<()> {
 ## Query
 
 The Query<T> type provides extraction functionality for the request's query parameters. Underneath it uses serde_urlencoded crate.
+
 ```rust
 use actix_web::{get, web, App, HttpServer};
 use serde::Deserialize;
@@ -128,14 +131,14 @@ struct Info {
     username: String,
 }
 
-/// deserialize `Info` from request's body
+// deserialize `Info` from request's body
 #[post("/submit")]
 async fn submit(info: web::Json<Info>) -> Result<String> {
     Ok(format!("Welcome {}!", info.username))
 }
 ```
 
-Some extractors provide a way to configure the extraction process. To configure an extractor, pass its configuration object to the resource's .app_data() method. In the case of Json extractor it returns a JsonConfig. You can configure the maximum size of the JSON payload as well as a custom error handler function.
+Some extractors provide a way to configure the extraction process. To configure an extractor, pass its configuration object to the resource's .app_data() method. In the case of Json extractor it returns a JsonConfig. You can configure the maximum size of the JSON payload as well as a custom error handler function. 
 
 The following example limits the size of the payload to 4kb and uses a custom error handler.
 
@@ -148,7 +151,7 @@ struct Info {
     username: String,
 }
 
-/// deserialize `Info` from request's body, max payload size is 4kb
+// deserialize `Info` from request's body, max payload size is 4kb
 async fn index(info: web::Json<Info>) -> impl Responder {
     format!("Welcome {}!", info.username)
 }
@@ -179,7 +182,7 @@ async fn main() -> std::io::Result<()> {
 
 ## URL-Encoded Forms
 
-A URL-encoded form body can be extracted to a struct, much like Json<T>. This type must implement serde::Deserialize.
+A URL-encoded form body can be extracted to a struct, much like Json<T>. This type must implement serde::Deserialize. 
 
 FormConfig allows configuring the extraction process.
 
@@ -192,9 +195,9 @@ struct FormData {
     username: String,
 }
 
-/// extract form data using serde
-/// this handler gets called only if the content type is *x-www-form-urlencoded*
-/// and the content of the request could be deserialized to a `FormData` struct
+// extract form data using serde
+// this handler gets called only if the content type is *x-www-form-urlencoded*
+// and the content of the request could be deserialized to a `FormData` struct
 #[post("/")]
 async fn index(form: web::Form<FormData>) -> Result<String> {
     Ok(format!("Welcome {}!", form.username))
@@ -313,8 +316,8 @@ async fn main() -> std::io::Result<()> {
 }
 ```
 
-**Note**: If you want the entire state to be shared across all threads, use web::Data and app_data as described in Shared Mutable State.
+Note: If you want the entire state to be shared across all threads, use web::Data and app_data as described in Shared Mutable State.
 
 Be careful when using blocking synchronization primitives like Mutex or RwLock within your app state. Actix Web handles requests asynchronously. It is a problem if the critical section in your handler is too big or contains an .await point. If this is a concern, we would advise you to also read Tokio's advice on using blocking Mutex in async code.
 
-
+ -->

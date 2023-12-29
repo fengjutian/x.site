@@ -76,7 +76,7 @@ async fn index() -> impl Responder {
 
 ## Streaming response body
 
-Response body can be generated asynchronously. In this case, body must implement the stream trait Stream<Item = Result<Bytes, Error>>, i.e.:
+<!-- Response body can be generated asynchronously. In this case, body must implement the stream trait Stream<Item = Result<Bytes, Error>>, i.e.: -->
 
 ```rust
 use actix_web::{get, web, App, Error, HttpResponse, HttpServer};
@@ -120,4 +120,4 @@ async fn index() -> RegisterResult {
         Either::Right(Ok("Hello!"))
     }
 }
-```
+``` 
