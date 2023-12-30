@@ -52,12 +52,17 @@ async fn manual_hello() -> impl Responder {
     HttpResponse::Ok().body("Hey there!")
 }
 ```
+<!-- 
+Notice that some of these handlers have routing information attached directly using the built-in macros. These allow you to specify the method and path that the handler should respond to. You will see below how to register manual_hello (i.e. routes that do not use a routing macro). -->
 
-Notice that some of these handlers have routing information attached directly using the built-in macros. These allow you to specify the method and path that the handler should respond to. You will see below how to register manual_hello (i.e. routes that do not use a routing macro).
+请注意，其中一些处理程序使用内置宏直接附加了路由信息。这些允许您指定处理程序应该响应的方法和路径。您将在下面看到如何注册manual_hello（即不使用路由宏的路由）。
 
-Next, create an App instance and register the request handlers. Use App::service for the handlers using routing macros and App::route for manually routed handlers, declaring the path and method. Finally, the app is started inside an HttpServer which will serve incoming requests using your App as an "application factory".
+<!-- Next, create an App instance and register the request handlers. Use App::service for the handlers using routing macros and App::route for manually routed handlers, declaring the path and method. Finally, the app is started inside an HttpServer which will serve incoming requests using your App as an "application factory". -->
 
-Further append the following main function to src/main.rs:
+接下来，创建一个 `App` 实例并注册请求处理程序。 对于使用路由宏的处理程序，请使用 `App::service`，对于手动路由的处理程序，请使用 `App::route`，声明路径和方法。 最后，使用 `HttpServer` 启动应用程序，该服务器将使用您的 App 作为“应用程序工厂”来处理传入的请求。
+
+<!-- Further append the following main function to src/main.rs: -->
+将下面代码复制到`src/main.rs`:
 
 ```rust
 #[actix_web::main]
@@ -73,5 +78,6 @@ async fn main() -> std::io::Result<()> {
     .await
 }
 ```
-That's it! Compile and run the program with cargo run. The #[actix_web::main] macro executes the async main function within the actix runtime. Now you can go to http://127.0.0.1:8080/ or any of the other routes you defined to see the results.
+<!-- That's it! Compile and run the program with cargo run. The #[actix_web::main] macro executes the async main function within the actix runtime. Now you can go to http://127.0.0.1:8080/ or any of the other routes you defined to see the results. -->
+使用`cargo run`编译并运行程序。`#[actix_web::main]`宏在actix运行时中执行异步主函数。现在，你可以转到`http://127.0.0.1:8080/`或在定义的任何其他路由来查看结果。
 
