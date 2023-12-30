@@ -5,7 +5,9 @@ sidebar_position: 2
 # 开始
 ## 安装 Rust
 
-If you don't have Rust yet, we recommend you use `rustup` to manage your Rust installation. [The official rust guide](https://doc.rust-lang.org/book/ch01-01-installation.html) has a wonderful section on getting started.
+<!-- If you don't have Rust yet, we recommend you use `rustup` to manage your Rust installation. [The official rust guide](https://doc.rust-lang.org/book/ch01-01-installation.html) has a wonderful section on getting started. -->
+
+如果您还没有 Rust，我们建议您使用 Rustup 来管理 Rust 安装。[官方 Rust 指南](https://doc.rust-lang.org/book/ch01-01-installation.html)是一个很棒的入门教程。
 
 Actix Web currently has a minimum supported Rust version (MSRV) of 1.59. Running `rustup update` will ensure you have the latest and greatest Rust version available. As such, this guide assumes you are running Rust 1.59 or later.
 
