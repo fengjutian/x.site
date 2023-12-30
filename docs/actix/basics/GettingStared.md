@@ -9,24 +9,31 @@ sidebar_position: 2
 
 如果您还没有 Rust，我们建议您使用 Rustup 来管理 Rust 安装。[官方 Rust 指南](https://doc.rust-lang.org/book/ch01-01-installation.html)是一个很棒的入门教程。
 
-Actix Web currently has a minimum supported Rust version (MSRV) of 1.59. Running `rustup update` will ensure you have the latest and greatest Rust version available. As such, this guide assumes you are running Rust 1.59 or later.
+<!-- Actix Web currently has a minimum supported Rust version (MSRV) of 1.59. Running `rustup update` will ensure you have the latest and greatest Rust version available. As such, this guide assumes you are running Rust 1.59 or later. -->
+
+Actix Web 目前支持的最低 Rust 版本为 1.59。运行 `rustup update` 将确保您拥有最新和最棒的 Rust 版本。因此，本指南假定你已经运行 Rust 1.59 或更高版本。
 
 # Hello, world!
 
-Start by creating a new binary-based Cargo project and changing into the new directory:
+<!-- Start by creating a new binary-based Cargo project and changing into the new directory: -->
+首先，创建一个新的基于二进制的 Cargo 项目并切换到新目录：
 
 ```xml
 cargo new hello-world
 cd hello-world
 ```
-Add `actix-web` as a dependency of your project by adding the following to your Cargo.toml file.
+<!-- Add `actix-web` as a dependency of your project by adding the following to your Cargo.toml file. -->
+你可以将以下依赖项添加到项目中的 `cargo.toml` 文件中：
+
 ```xml
 [dependencies]
 actix-web = "4"
 ```
-Request handlers use async functions that accept zero or more parameters. These parameters can be extracted from a request (see `FromRequest` trait) and returns a type that can be converted into an `HttpResponse` (see `Responder` trait):
+<!-- Request handlers use async functions that accept zero or more parameters. These parameters can be extracted from a request (see `FromRequest` trait) and returns a type that can be converted into an `HttpResponse` (see `Responder` trait): -->
+请求处理程序使用接受零个或多个参数的异步函数。 这些参数可以从请求中提取（请参见 FromRequest trait），并返回可以转换为 HttpResponse 的类型（请参见 Responder trait）：
 
-Replace the contents of `src/main.rs` with the following:
+<!-- Replace the contents of `src/main.rs` with the following: -->
+请将 `src/main.rs` 的内容替换为以下内容：
 
 ```rust
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
