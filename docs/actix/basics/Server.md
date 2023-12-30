@@ -66,3 +66,108 @@ async fn my_handler() -> impl Responder {
 
 The same limitation applies to extractors as well. When a handler function receives an argument which implements FromRequest, and that implementation blocks the current thread, the worker thread will block when running the handler. Special attention must be given when implementing extractors for this very reason, and they should also be implemented asynchronously where needed.
 
+# TLS / HTTPS
+
+Actix Web supports two TLS implementations out-of-the-box: `rustls` and `openssl`.
+
+The `rustls` crate feature is for `rustls` integration and `openssl` is for `openssl` integration.
+
+```xml
+[dependencies]
+actix-web = { version = "4", features = ["openssl"] }
+openssl = { version = "0.10" }
+```
+
+```rust
+use actix_web::{get, App, HttpRequest, HttpServer, Responder};
+use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
+
+#[get("/")]
+async fn index(_req: HttpRequest) -> impl Responder {
+    "Welcome!"
+}
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    // load TLS keys
+    // to create a self-signed temporary cert for testing:
+    // `openssl req -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365 -subj '/CN=localhost'`
+    let mut builder = SslAcceptor::mozilla_intermediate(SslMethod::tls()).unwrap();
+    builder
+        .set_private_key_file("key.pem", SslFiletype::PEM)
+        .unwrap();
+    builder.set_certificate_chain_file("cert.pem").unwrap();
+
+    HttpServer::new(|| App::new().service(index))
+        .bind_openssl("127.0.0.1:8080", builder)?
+        .run()
+        .await
+}
+```
+
+To create the key.pem and cert.pem use the command. Fill in your own subject
+
+```xml
+$ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem \
+  -days 365 -sha256 -subj "/C=CN/ST=Fujian/L=Xiamen/O=TVlinux/OU=Org/CN=muro.lxd"
+```
+
+To remove the password, then copy nopass.pem to key.pem
+
+```xml
+$ openssl rsa -in key.pem -out nopass.pem
+```
+
+# Keep-Alive
+
+Actix Web keeps connections open to wait for subsequent requests.
+
+- `Duration::from_secs(75)` or `KeepAlive::Timeout(75)`: enables 75 second keep-alive timer.
+- `KeepAlive::Os`: uses OS keep-alive.
+- None or `KeepAlive::Disabled`: disables keep-alive.
+
+```rust
+use actix_web::{http::KeepAlive, HttpServer};
+use std::time::Duration;
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    // Set keep-alive to 75 seconds
+    let _one = HttpServer::new(app).keep_alive(Duration::from_secs(75));
+
+    // Use OS's keep-alive (usually quite long)
+    let _two = HttpServer::new(app).keep_alive(KeepAlive::Os);
+
+    // Disable keep-alive
+    let _three = HttpServer::new(app).keep_alive(None);
+
+    Ok(())
+}
+```
+
+If the first option above is selected, then keep-alive is enabled for HTTP/1.1 requests if the response does not explicitly disallow it by, for example, setting the connection type to `Close` or `Upgrade`. Force closing a connection can be done with the `force_close()` method on `HttpResponseBuilder`.
+
+```rust
+use actix_web::{http, HttpRequest, HttpResponse};
+
+async fn index(_req: HttpRequest) -> HttpResponse {
+    let mut resp = HttpResponse::Ok()
+        .force_close() // <- Close connection on HttpResponseBuilder
+        .finish();
+
+    // Alternatively close connection on the HttpResponse struct
+    resp.head_mut().set_connection_type(http::ConnectionType::Close);
+
+    resp
+}
+```
+
+# Graceful shutdown
+
+`HttpServer` supports graceful shutdown. After receiving a stop signal, workers have a specific amount of time to finish serving requests. Any workers still alive after the timeout are force-dropped. By default the shutdown timeout is set to 30 seconds. You can change this parameter with the `HttpServer::shutdown_timeout()` method.
+
+`HttpServer` handles several OS signals. CTRL-C is available on all OSes, other signals are available on unix systems.
+
+- SIGINT - Force shutdown workers
+- SIGTERM - Graceful shutdown workers
+- SIGQUIT - Force shutdown workers
