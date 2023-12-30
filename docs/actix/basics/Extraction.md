@@ -16,11 +16,11 @@ async fn index(path: web::Path<(String, String)>, json: web::Json<MyInfo>) -> im
 }
 ```
 
-<!-- ## Path
+## Path
 
 Path provides information that is extracted from the request's path. Parts of the path that are extractable are called "dynamic segments" and are marked with curly braces. You can deserialize any variable segment from the path.
 
-For instance, for resource that registered for the /users/{user_id}/{friend} path, two segments could be deserialized, user_id and friend. These segments could be extracted as a tuple in the order they are declared (e.g., Path<(u32, String)>).
+For instance, for resource that registered for the `/users/{user_id}/{friend}` path, two segments could be deserialized, `user_id` and friend. These segments could be extracted as a tuple in the order they are declared (e.g., `Path<(u32, String)>`).
 
 ```rust
 use actix_web::{get, web, App, HttpServer, Result};
@@ -41,8 +41,8 @@ async fn main() -> std::io::Result<()> {
         .run()
         .await
 }
-``` -->
-<!-- 
+```
+
 It is also possible to extract path information to a type that implements the Deserialize trait from serde by matching dynamic segment names with field names. Here is an equivalent example that uses a deserialization struct using serde (make sure to enable its derive feature) instead of a tuple type.
 
 ```rust
@@ -75,7 +75,7 @@ async fn main() -> std::io::Result<()> {
 }
 ```
 
-As a non-type-safe alternative, it's also possible to query (see match_info docs) the request for path parameters by name within a handler:
+As a `non-type-safe` alternative, it's also possible to query (see match_info docs) the request for path parameters by name within a handler:
 
 ```rust
 #[get("/users/{user_id}/{friend}")] // <- define path parameters
@@ -99,7 +99,7 @@ async fn main() -> std::io::Result<()> {
 
 ## Query
 
-The Query<T> type provides extraction functionality for the request's query parameters. Underneath it uses serde_urlencoded crate.
+The `Query<T>` type provides extraction functionality for the request's query parameters. Underneath it uses `serde_urlencoded` crate.
 
 ```rust
 use actix_web::{get, web, App, HttpServer};
@@ -120,7 +120,7 @@ async fn index(info: web::Query<Info>) -> String {
 
 ## JSON
 
-Json<T> allows deserialization of a request body into a struct. To extract typed information from a request's body, the type T must implement serde::Deserialize.
+`Json<T>` allows deserialization of a request body into a struct. To extract typed information from a request's body, the type T must implement `serde::Deserialize`.
 
 ```rust
 use actix_web::{post, web, App, HttpServer, Result};
@@ -138,7 +138,7 @@ async fn submit(info: web::Json<Info>) -> Result<String> {
 }
 ```
 
-Some extractors provide a way to configure the extraction process. To configure an extractor, pass its configuration object to the resource's .app_data() method. In the case of Json extractor it returns a JsonConfig. You can configure the maximum size of the JSON payload as well as a custom error handler function. 
+Some extractors provide a way to configure the extraction process. To configure an extractor, pass its configuration object to the resource's `.app_data()` method. In the case of Json extractor it returns a JsonConfig. You can configure the maximum size of the JSON payload as well as a custom error handler function. 
 
 The following example limits the size of the payload to 4kb and uses a custom error handler.
 
@@ -182,7 +182,7 @@ async fn main() -> std::io::Result<()> {
 
 ## URL-Encoded Forms
 
-A URL-encoded form body can be extracted to a struct, much like Json<T>. This type must implement serde::Deserialize. 
+A `URL-encoded` form body can be extracted to a struct, much like `Json<T>`. This type must implement `serde::Deserialize`. 
 
 FormConfig allows configuring the extraction process.
 
@@ -320,4 +320,3 @@ Note: If you want the entire state to be shared across all threads, use web::Dat
 
 Be careful when using blocking synchronization primitives like Mutex or RwLock within your app state. Actix Web handles requests asynchronously. It is a problem if the critical section in your handler is too big or contains an .await point. If this is a concern, we would advise you to also read Tokio's advice on using blocking Mutex in async code.
 
- -->
