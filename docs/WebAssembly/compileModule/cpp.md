@@ -49,10 +49,38 @@ emcc hello.c -o hello.html
 - 一个 JavaScript 文件，其中包含用于在本机 C 函数和 JavaScript/Wasm 之间转换的粘附代码 （ `hello.js` ）
 - 一个 HTML 文件，用于加载、编译和实例化 Wasm 代码，并在浏览器中显示其输出 （ `hello.html` ）
 
+# 使用自定义 HTML 模板
 
+有时，您需要使用自定义 HTML 模板。让我们看看如何做到这一点。
 
+1. 首先，将以下 C 代码保存在名为 hello2.c 的文件中，在新目录中：
 
+```cpp
+#include <stdio.h>
 
+int main() {
+    printf("Hello World\n");
+    return 0;
+}
+
+```
+
+2. 在 emsdk 存储库中搜索该文件 `shell_minimal.html` 。将其复制到上一个新目录中调用 `html_template` 的子目录中。
+
+3. 现在导航到您的新目录（同样，在您的 Emscripten 编译器环境终端窗口中），并运行以下命令：
+   
+```bash
+emcc -o hello2.html hello2.c -O3 --shell-file html_template/shell_minimal.html
+```
+
+这次我们传递的选项略有不同：
+- 我们已经指定 `-o hello2.html` 了 ，这意味着编译器仍将输出 JavaScript 胶水代码和 `.html` .
+
+- 我们指定 `-O3` 了 ，用于优化代码。Emcc 具有与任何其他 C 编译器一样的优化级别，包括： `-O0` （无优化）、 `-O1` 、、 `-Os` 、 `-Oz -Og -O2` 、和 `-O3` 。 `-O3` 是发布版本的良好设置。
+
+- 我们还指定 `--shell-file html_template/shell_minimal.html` 了 — 这提供了要用于创建将运行示例的 HTML 的 HTML 模板的路径。
+
+4. 现在让我们运行这个例子。上面的命令将生成 `hello2.html` ，它将具有与模板大致相同的内容，并添加一些胶水代码以加载生成的 Wasm、运行它等。在浏览器中打开它，您将看到与上一个示例大致相同的输出。
 
 
 

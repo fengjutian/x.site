@@ -61,7 +61,6 @@ const sidebars = {
     'SpringBoot/intro',
   ],
   'WebAssemblySidebar' : [
-    'WebAssembly/intro',
     {
       type: 'category',
       label: '编译模块',
@@ -73,6 +72,7 @@ const sidebars = {
         'WebAssembly/compileModule/cpp',
       ],
     },
+    'WebAssembly/intro',
   ],
   'C2C++Sidebar' : [
     'C2C++/intro',
