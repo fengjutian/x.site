@@ -79,6 +79,12 @@ const config = {
             position: 'left',
             label: 'Rust',
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'javaSidebar',
+            position: 'left',
+            label: 'Java',
+          },
           { 
             type: 'docSidebar',
             sidebarId: 'actixSidebar',
@@ -92,7 +98,7 @@ const config = {
             label: 'SeaORM',
           },
           { 
-            to: '/blog', 
+            to: '/blog',
             label: 'Blog', 
             position: 'left'
           },

@@ -53,6 +53,9 @@ const sidebars = {
   ],
   'SeaORMSidebar' : [
     'SeaORM/introduction',
+  ],
+  'javaSidebar' : [
+    'java/intro',
   ]
 };
 
