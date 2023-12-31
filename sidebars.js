@@ -56,6 +56,24 @@ const sidebars = {
   ],
   'javaSidebar' : [
     'java/intro',
+  ],
+  'SpringBootSidebar' : [
+    'SpringBoot/intro',
+  ],
+  'WebAssemblySidebar' : [
+    'WebAssembly/intro',
+  ],
+  'C2C++Sidebar' : [
+    'C2C++/intro',
+  ],
+  'WebGLSidebar' : [
+    'WebGL/intro',
+  ],
+  'PythonSidebar' : [
+    'python/intro',
+  ],
+  'DeepLearnSidebar' : [
+    'deeplearn/intro',
   ]
 };
 

@@ -75,6 +75,18 @@ const config = {
         items: [
           {
             type: 'docSidebar',
+            sidebarId: 'PythonSidebar',
+            position: 'left',
+            label: 'Python',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'DeepLearnSidebar',
+            position: 'left',
+            label: 'AI',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Rust',
@@ -84,6 +96,30 @@ const config = {
             sidebarId: 'javaSidebar',
             position: 'left',
             label: 'Java',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'SpringBootSidebar',
+            position: 'left',
+            label: 'SpringBoot',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'WebAssemblySidebar',
+            position: 'left',
+            label: 'WebAssembly',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'C2C++Sidebar',
+            position: 'left',
+            label: 'C2C++',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'WebGLSidebar',
+            position: 'left',
+            label: 'WebGL',
           },
           { 
             type: 'docSidebar',
