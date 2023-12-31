@@ -74,6 +74,9 @@ const sidebars = {
   ],
   'DeepLearnSidebar' : [
     'deeplearn/intro',
+  ],
+  'TypeScriptSidebar' : [
+    'TypeScript/intro',
   ]
 };
 

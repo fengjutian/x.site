@@ -133,6 +133,12 @@ const config = {
             position: 'left',
             label: 'SeaORM',
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'TypeScriptSidebar',
+            position: 'left',
+            label: 'TypeScript',
+          },
           { 
             to: '/blog',
             label: 'Blog', 
