@@ -51,6 +51,9 @@ const sidebars = {
       ],
     },
   ],
+  'SeaORMSidebar' : [
+    'SeaORM/introduction',
+  ]
 };
 
 export default sidebars;

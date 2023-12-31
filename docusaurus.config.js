@@ -80,14 +80,20 @@ const config = {
             label: 'Rust',
           },
           { 
-            to: '/blog', 
-            label: 'Blog', 
-            position: 'left'
-          },
-          { 
             type: 'docSidebar',
             sidebarId: 'actixSidebar',
             label: 'Actix', 
+            position: 'left'
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'SeaORMSidebar',
+            position: 'left',
+            label: 'SeaORM',
+          },
+          { 
+            to: '/blog', 
+            label: 'Blog', 
             position: 'left'
           },
           {
