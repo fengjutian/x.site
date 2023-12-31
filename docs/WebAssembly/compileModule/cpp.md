@@ -84,4 +84,4 @@ emcc -o hello2.html hello2.c -O3 --shell-file html_template/shell_minimal.html
 
 
 
-# [原文](https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_wasm)
+原文：https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_wasm

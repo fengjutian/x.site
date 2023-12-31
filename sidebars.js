@@ -70,6 +70,7 @@ const sidebars = {
       collapsed: false,
       items: [
         'WebAssembly/compileModule/cpp',
+        'WebAssembly/compileModule/compileExiste',
       ],
     },
     'WebAssembly/intro',
