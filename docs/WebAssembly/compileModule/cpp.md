@@ -44,6 +44,10 @@ emcc hello.c -o hello.html
 我们随命令传入的选项如下：
 - `-o hello.html` — 指定我们希望 Emscripten 生成一个 HTML 页面来运行我们的代码（以及要使用的文件名），以及 Wasm 模块和 JavaScript“胶水”代码来编译和实例化 Wasm，以便它可以在 Web 环境中使用。
 
+此时，在源目录中，您应该具有：
+- 二进制 Wasm 模块代码 （ `hello.wasm` ）
+- 一个 JavaScript 文件，其中包含用于在本机 C 函数和 JavaScript/Wasm 之间转换的粘附代码 （ `hello.js` ）
+- 一个 HTML 文件，用于加载、编译和实例化 Wasm 代码，并在浏览器中显示其输出 （ `hello.html` ）
 
 
 
