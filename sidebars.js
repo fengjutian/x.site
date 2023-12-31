@@ -62,6 +62,17 @@ const sidebars = {
   ],
   'WebAssemblySidebar' : [
     'WebAssembly/intro',
+    {
+      type: 'category',
+      label: '编译模块',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: [
+        'WebAssembly/compileModule/cpp',
+      ],
+    },
   ],
   'C2C++Sidebar' : [
     'C2C++/intro',
