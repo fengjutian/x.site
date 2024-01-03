@@ -12,8 +12,8 @@ sidebar_position: 2
 | --- | --- |
 | app | 应用路由器 |
 |  pages | 页面路由器 | 
-| public | 要提供的静态资产 |
-| src | 可选应用程序源文件夹 |
+| public | 静态资源 |
+| src | 应用程序源文件夹 |
 
 ## 顶级文件
 
