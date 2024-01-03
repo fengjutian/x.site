@@ -89,6 +89,21 @@ const sidebars = {
   ],
   'TypeScriptSidebar' : [
     'TypeScript/intro',
+  ],
+  'NextJsSidebar': [
+    {
+      type: 'category',
+      label: '开始',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: [
+        'nextjs/GettingStared/Installation',
+        'nextjs/GettingStared/ProjectStructure'
+      ],
+    },
+    'nextjs/intro'
   ]
 };
 
