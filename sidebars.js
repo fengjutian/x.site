@@ -2,6 +2,34 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
+  javaSidebar: [
+    'intro',
+    {
+      type: 'category',
+      label: 'Getting Started',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: [
+        'tutorial-basics/create-a-document',
+      ],
+    },
+  ],
+  webRTCSidebar: [
+    'intro',
+    {
+      type: 'category',
+      label: 'Getting Started',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: [
+        'tutorial-basics/create-a-document',
+      ],
+    },
+  ],
   tutorialSidebar: [
     'intro',
     {

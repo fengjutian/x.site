@@ -87,6 +87,18 @@ const config = {
           // },
           {
             type: 'docSidebar',
+            sidebarId: 'javaSidebar',
+            position: 'left',
+            label: 'Java',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'webRTCSidebar',
+            position: 'left',
+            label: 'WebRTC',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Rust',
